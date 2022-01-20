@@ -10,10 +10,10 @@
     <main>
         <label>Name:</label>
         <input type = "text" id = "name-input">
-        <button>Add Employee</button>
+        <button id="add-name-btn">Add Employee</button>
 
         <br><br><br>
-        <div>
+        <div hidden>
             <input placeholder = "search by date" id = "search-input">
             <button id="search-btn">Search</button>
         </div>
@@ -27,7 +27,13 @@
 
             </thead>
             <tbody></tbody>
-        </table>    
+        </table> 
+        
+        <section hidden id="update-row">
+            <label>Update Percentage:</label>
+            <input type="text" id="update-percentage">
+            <button id="update-row-btn">Update</button>
+        </section>
     </main>
     <script src="index.js"></script>
     
