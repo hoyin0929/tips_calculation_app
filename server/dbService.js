@@ -22,7 +22,9 @@ class DbService{
     static getDbServiceInstance(){
             return instance ? instance : new DbService();
     }
-
+    async getAllTips(){
+        
+    }
     async getAllData(){
         try{
             const response = await new Promise((resolve, reject) => {

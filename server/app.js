@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const dbService = require('./dbService');
+const { request } = require('express');
 
 app.use(cors());
 app.use(express.json());
@@ -35,6 +36,8 @@ app.get('/getAll', (request, response) => {
     .then(data => response.json({data : data}))
     .catch(err => console.log(err));
 });
+
+// app.get('/getTips', (request, response) =>)
 
 //update
 app.patch('/update', (request, response) => {
