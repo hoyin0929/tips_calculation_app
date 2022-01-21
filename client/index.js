@@ -105,7 +105,7 @@ function loadHTMLTable(data){
 
     let tableHtml = "";
 
-    data.forEach(function({id, name, tip_per}){
+    data.forEach(function({id, name, tip_per, roles}){
         tableHtml += "<tr>";
         tableHtml += `<td>${id}</td>`;
         tableHtml += `<td>${name}</td>`;
@@ -124,7 +124,7 @@ const updateBtn = document.querySelector('#update-row-btn');
 
 updateBtn.onclick = function(){
     const updateTip = document.querySelector('#update-percentage');
-
+    const roles = 'server'
     fetch('http://localhost:5000/update', {
         method: 'PATCH',
         headers: {
@@ -132,7 +132,8 @@ updateBtn.onclick = function(){
         },
         body: JSON.stringify({
             id: updateTip.dataset.id,
-            tip_per: updateTip.value
+            tip_per: updateTip.value,
+            // roles: "Server"
         })
     })
     .then(response => response.json())

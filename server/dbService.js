@@ -23,7 +23,7 @@ class DbService{
             return instance ? instance : new DbService();
     }
     async getAllTips(){
-        
+
     }
     async getAllData(){
         try{
@@ -44,11 +44,12 @@ class DbService{
 
     async insertNewName(name){
         try{
-            const tip_per = 0.3;
+            const tip_per = 0;
+            const roles = "Kitchen";
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO employee (name, tip_per) VALUES(?,?);";
 
-                connection.query(query, [name, tip_per] , (err, results) => {
+                connection.query(query, [name, tip_per, roles] , (err, results) => {
                     if (err) reject(new Error(err.message));
                     resolve(results.insertId);
                 })
@@ -57,7 +58,8 @@ class DbService{
             return {
                 id : insertId,
                 name : name,
-                tip_per: tip_per
+                tip_per: tip_per,
+                roles : roles,
          };
             //return insertId;
 
