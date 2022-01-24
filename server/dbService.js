@@ -25,7 +25,8 @@ class DbService{
     async getAllTip(){
         try{
             const response = await new Promise((resolve, reject) => {
-                const query = "SELECT * FROM tips;";
+                const query = 
+                "SELECT  employee.name, tips.date, tips.amTip, tips.pmTip FROM tips CROSS JOIN employee WHERE employee.id = tips.employee;";
 
                 connection.query(query, (err, results) => {
                     if (err) reject(new Error(err.message));
@@ -67,7 +68,7 @@ class DbService{
                     resolve(results.insertId);
                 })
             });
-        console.log(insertId);
+        //console.log(insertId);
             return {
                 id : insertId,
                 name : name,
@@ -121,9 +122,10 @@ class DbService{
     async updateTips(employee, amTip, pmTip){
         try{
             employee = parseInt(employee, 10);
-            // console.log(typeof 'employee');
-            // console.log(employee);
-            const date = new Date();
+            //console.log(typeof 'employee');
+            //console.log(employee);
+            let date = new Date();
+            // date.toDateString();
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO tips (employee, date, amTip, pmTip) VALUES(?,?,?,?);";
 
@@ -137,7 +139,6 @@ class DbService{
                 id: insertId,
                 employee: employee,
                 date : date,
-                amTip: amTip,
                 pmTip: pmTip
             };
         console.log(result);

@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function(){
     .then(data => loadHTMLTable(data['data']))
 });
 
+document.addEventListener('DOMContentLoaded', function(){
+    fetch('http://localhost:5000/getTips')
+    .then(response => response.json())
+    .then(data => loadTipTable(data['data']))
+});
+
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
@@ -219,6 +225,25 @@ function loadHTMLTable(data){
         // tableHtml += `<td>$${tips}</td>`;
         tableHtml += `<td><input type="checkbox" name="pm" id=${id} value=${tip_per}></td>`;
         // tableHtml += `<td>$${tips}</td>`;
+        tableHtml += "</tr>";
+    });
+
+    table.innerHTML = tableHtml;
+    //console.log(data.length);
+
+}
+
+function loadTipTable(data){
+    const table = document.querySelectorAll('table tbody')[1];
+
+    let tableHtml = "";
+
+    data.forEach(function({name, date, amTip, pmTip}){
+        tableHtml += "<tr>";
+        tableHtml += `<td class="name">${name}</td>`;
+        tableHtml += `<td>${new Date(date).toDateString()}</td>`;
+        tableHtml += `<td>$${amTip}</td>`;
+        tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";
     });
 
