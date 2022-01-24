@@ -30,30 +30,32 @@
     <label for="amCash"><b>A.M. Cash</b></label></br>
     <input type=number id='amCash' style="width: 80px;"></input></br></br>
 
-    <button id="calculate-btn">Calculate</button>
+    <button id="calculate-btn" onClick="display()>Calculate</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div> -->
     
 </br>
 <form class="form-inline">
-    <label for="totalCredit"><b>Total Credit: </b></label></br>
-    <input type=number id='totalCredit' style="width: 80px;"></input></br>
-    <label for="totalCash"><b>Total Cash: </b></label></br>
+    <label for="totalCredit"><b>Total Credit: </b></label>
+    <input type=number id='totalCredit' style="width: 80px;"></input>
+    <label for="totalCash"><b>Total Cash: </b></label>
     <input type=number id='totalCash' style="width: 80px;"></input></br></br>
-    <label for="amCredit"><b>A.M. Credit:</b></label></br>
-    <input type=number id='amCredit' style="width: 80px;"></input></br>
-    <label for="amCash"><b>A.M. Cash:</b></label></br>
+    <label for="amCredit"><b>A.M. Credit:</b></label>
+    <input type=number id='amCredit' style="width: 80px;"></input>
+    <label for="amCash"><b>A.M. Cash:</b></label>
     <input type=number id='amCash' style="width: 80px;"></input></br></br>
     <button id="calculate-btn">Calculate</button></br></br>
 
     A.M. Total: <output id = amTotal></output></br></br>
     P.M. Total: <output id = pmTotal></output></br></br>
-</form>   
+</form>
+<div class="row">
+    <div class="column">   
     <table id="example" class="display" cellspacing="0">
         <thead>
            <tr>
-              <th>Empployee</th>
+              <th>Employee</th>
               <th>am</th>
               <!-- <th>A.M. Tip</th> -->
               <th>pm</th>
@@ -62,7 +64,23 @@
         </thead>
         <tbody></tbody>
      </table>
-     <button id="btn">Get Tips</button>
+    </div>
+    <div class="column">
+     <table id="tipTable" class="display" cellspacing="0">
+        <thead>
+           <tr>
+              <th>Employee</th>
+              <th>A.M. Tips</th>
+              <!-- <th>A.M. Tip</th> -->
+              <th>P.M. Tips</th>
+              <!-- <th>P.M. Tip</th> -->
+           </tr>
+        </thead>
+        <tbody></tbody>
+     </table>
+    </div>
+</div>
+     </br><button id="btn">Get Tips</button>
 
     <script src="script.js"></script>
 </body>
