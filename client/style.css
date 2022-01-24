@@ -16,3 +16,32 @@ table, th, td {
 th, td {
     padding: 5px;
 }
+
+.topnav {
+    overflow: hidden;
+    background-color: #4CAF50;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #cae8ca;
+    border: 2px solid #4CAF50;
+  }
