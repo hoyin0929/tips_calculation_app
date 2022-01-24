@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function(){
     .then(data => loadHTMLTable(data['data']))
 });
 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', (event) => {
     let amcheckboxes = document.querySelectorAll('input[name="am"]:checked');
@@ -204,13 +212,13 @@ function loadHTMLTable(data){
 
     let tableHtml = "";
 
-    data.forEach(function({id, name, tip_per, tips}){
+    data.forEach(function({id, name, tip_per}){
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
         tableHtml += `<td><input type="checkbox" name="am" id=${id} value=${tip_per}></td>`;
-        tableHtml += `<td>$${tips}</td>`;
+        // tableHtml += `<td>$${tips}</td>`;
         tableHtml += `<td><input type="checkbox" name="pm" id=${id} value=${tip_per}></td>`;
-        tableHtml += `<td>$${tips}</td>`;
+        // tableHtml += `<td>$${tips}</td>`;
         tableHtml += "</tr>";
     });
 

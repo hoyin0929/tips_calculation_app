@@ -15,24 +15,49 @@
           
     </div>
 <body>
-    
-    Total Credit: <input type=number id='totalCredit' style="width: 64px;"></input>
-    Total Cash: <input type=number id='totalCash' style="width: 64px;"></input></br>
-    A.M. Credit: <input type=number id='amCredit' style="width: 64px;"></input>
-    A.M. Cash: <input type=number id='amCash' style="width: 64px;"></input></br>
-    <button id="calculate-btn">Calculate</button></br>
+    <button class="open-button" onclick="openForm()">Enter Tips Here</button>
 
-    A.M. Total: <output id = amTotal></output></br>
-    P.M. Total: <output id = pmTotal></output></br>
+<!-- <div class="form-popup" id="myForm">
+  <form class="form-container">
+    <h1>Enter today tips</h1>
+
+    <label for="totalCredit"><b>Total Credit</b></label></br>
+    <input type=number id='totalCredit' style="width: 80px;"></input></br></br>
+    <label for="totalCash"><b>Total Cash</b></label></br>
+    <input type=number id='totalCash' style="width: 80px;"></input></br></br>
+    <label for="amCredit"><b>A.M. Credit</b></label></br>
+    <input type=number id='amCredit' style="width: 80px;"></input></br></br>
+    <label for="amCash"><b>A.M. Cash</b></label></br>
+    <input type=number id='amCash' style="width: 80px;"></input></br></br>
+
+    <button id="calculate-btn">Calculate</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> -->
     
+</br>
+<form class="form-inline">
+    <label for="totalCredit"><b>Total Credit: </b></label></br>
+    <input type=number id='totalCredit' style="width: 80px;"></input></br>
+    <label for="totalCash"><b>Total Cash: </b></label></br>
+    <input type=number id='totalCash' style="width: 80px;"></input></br></br>
+    <label for="amCredit"><b>A.M. Credit:</b></label></br>
+    <input type=number id='amCredit' style="width: 80px;"></input></br>
+    <label for="amCash"><b>A.M. Cash:</b></label></br>
+    <input type=number id='amCash' style="width: 80px;"></input></br></br>
+    <button id="calculate-btn">Calculate</button></br></br>
+
+    A.M. Total: <output id = amTotal></output></br></br>
+    P.M. Total: <output id = pmTotal></output></br></br>
+</form>   
     <table id="example" class="display" cellspacing="0">
         <thead>
            <tr>
               <th>Empployee</th>
               <th>am</th>
-              <th>A.M. Tip</th>
+              <!-- <th>A.M. Tip</th> -->
               <th>pm</th>
-              <th>P.M. Tip</th>
+              <!-- <th>P.M. Tip</th> -->
            </tr>
         </thead>
         <tbody></tbody>
