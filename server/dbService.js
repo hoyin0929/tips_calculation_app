@@ -35,7 +35,7 @@ class DbService{
                     resolve(results);       
                 })
             });
-            //console.log(response);
+            //  console.log(response);
             return response;
         } catch (error){
             console.log(error);
@@ -45,23 +45,21 @@ class DbService{
     async insertNewName(name){
         try{
             const tip_per = 0;
-            const roles = "Kitchen";
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO employee (name, tip_per) VALUES(?,?);";
 
-                connection.query(query, [name, tip_per, roles] , (err, results) => {
+                connection.query(query, [name, tip_per] , (err, results) => {
                     if (err) reject(new Error(err.message));
                     resolve(results.insertId);
                 })
             });
-        //console.log(insertId);
+        console.log(insertId);
             return {
                 id : insertId,
                 name : name,
-                tip_per: tip_per,
-                roles : roles,
+                tip_per: tip_per
          };
-            //return insertId;
+            return insertId;
 
         }catch(error){
             console.log(err);
@@ -103,6 +101,35 @@ class DbService{
         } catch (error) {
             console.log(error);
             return false;
+        }
+    }
+
+    async updateTips(employee, amTip, pmTip){
+        try{
+            // employee = parseInt(employee, 10);
+            //employee = 0;
+            console.log(typeof 'employee');
+            console.log(employee);
+            const date = new Date();
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO tips (employee, date, amTip, pmTip) VALUES(?,?,?,?);";
+
+                connection.query(query, [employee, date, amTip, pmTip] , (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result);
+                })
+            });
+            console.log(insertId);
+            return {
+                id: insertId,
+                employee: employee,
+                date : date,
+                amTip: amTip,
+                pmTip: pmTip
+            };
+        console.log(result);
+        }catch(error){
+            console.log(error);
         }
     }
 }

@@ -105,7 +105,7 @@ function loadHTMLTable(data){
 
     let tableHtml = "";
 
-    data.forEach(function({id, name, tip_per, roles}){
+    data.forEach(function({id, name, tip_per}){
         tableHtml += "<tr>";
         tableHtml += `<td>${id}</td>`;
         tableHtml += `<td>${name}</td>`;

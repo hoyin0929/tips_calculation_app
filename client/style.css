@@ -16,8 +16,3 @@ table, th, td {
 th, td {
     padding: 5px;
 }
-
-table.dataTable.dt-checkboxes-select tbody tr,
-table.dataTable tbody td.dt-checkboxes-cell {
-    cursor: default;
-}

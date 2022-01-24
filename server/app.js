@@ -22,8 +22,23 @@ app.post('/insert', (request, response) => {
     const result = db.insertNewName(name);
 
     result
-    .then(data => response.json({data : data}))
+    .then(data => response.json({data: data})) 
     .catch(err => console.log(err));
+});
+
+app.post('/tip', (request, response) => {
+    //console.log('I got a request!')
+    //console.log(request.body);
+    let {employee, amTip, pmTip} = request.body;
+    employee = parseInt(employee, 10);
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.updateTips(employee, amTip, pmTip);
+    result
+    .then(data => response.json({ data: data}))
+    .catch(err => console.log(err));
+    //console.log(result)
+    // console.log(data)
 });
 
 //read
@@ -45,7 +60,7 @@ app.patch('/update', (request, response) => {
     const {id, tip_per} = request.body;
     const db = dbService.getDbServiceInstance();
 
-    const result = db.updateTipById(id, tip_per);
+    const result = db.updateTipById(date, id, tip_per);
 
     result
     .then(data => response.json({success : data}))
