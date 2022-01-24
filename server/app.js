@@ -52,7 +52,15 @@ app.get('/getAll', (request, response) => {
     .catch(err => console.log(err));
 });
 
-// app.get('/getTips', (request, response) =>)
+app.get('/getTips', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getDailyTip();
+    
+    result
+    .then(data => response.json({data : data}))
+    .catch(err => console.log(err));
+});
 
 //update
 app.patch('/update', (request, response) => {
