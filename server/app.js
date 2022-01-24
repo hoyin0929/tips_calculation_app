@@ -55,7 +55,7 @@ app.get('/getAll', (request, response) => {
 app.get('/getTips', (request, response) => {
     const db = dbService.getDbServiceInstance();
 
-    const result = db.getDailyTip();
+    const result = db.getAllTip();
     
     result
     .then(data => response.json({data : data}))
