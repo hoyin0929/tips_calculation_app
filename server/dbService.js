@@ -106,10 +106,9 @@ class DbService{
 
     async updateTips(employee, amTip, pmTip){
         try{
-            // employee = parseInt(employee, 10);
-            //employee = 0;
-            console.log(typeof 'employee');
-            console.log(employee);
+            employee = parseInt(employee, 10);
+            // console.log(typeof 'employee');
+            // console.log(employee);
             const date = new Date();
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO tips (employee, date, amTip, pmTip) VALUES(?,?,?,?);";
@@ -119,7 +118,7 @@ class DbService{
                     resolve(result);
                 })
             });
-            console.log(insertId);
+            //console.log(insertId);
             return {
                 id: insertId,
                 employee: employee,
