@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended : false }));
 
 // define the first route
 app.get("/", function (req, res) {
-    res.send('Hello World!');
+    res.sendFile('./client/calculate.html', { root: __dirname });
 })
 
 //create
