@@ -26,8 +26,7 @@ class DbService{
         try{
             const response = await new Promise((resolve, reject) => {
                 const query = 
-                "SELECT  employee.name, tips.date, tips.amTip, tips.pmTip FROM tips CROSS JOIN employee WHERE employee.id = tips.employee;";
-
+                "SELECT  employee.name, tips.date as date, MAX(tips.amTip) as amTip, MAX(tips.pmTip) as pmTip FROM tips CROSS JOIN employee WHERE employee.id = tips.employee GROUP BY employee.name ORDER BY tips.employee;"
                 connection.query(query, (err, results) => {
                     if (err) reject(new Error(err.message));
                     resolve(results);       

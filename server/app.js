@@ -68,7 +68,7 @@ app.patch('/update', (request, response) => {
     const {id, tip_per} = request.body;
     const db = dbService.getDbServiceInstance();
 
-    const result = db.updateTipById(date, id, tip_per);
+    const result = db.updateTipById(id, tip_per);
 
     result
     .then(data => response.json({success : data}))

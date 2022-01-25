@@ -110,8 +110,8 @@ function loadHTMLTable(data){
         tableHtml += `<td>${id}</td>`;
         tableHtml += `<td>${name}</td>`;
         tableHtml += `<td>${tip_per}</td>`;
-        tableHtml += `<td><button class="delete-row-btn" data-id=${id}>Delete</td>`;
-        tableHtml += `<td><button class="edit-row-btn" data-id=${id}>Edit</td>`;
+        tableHtml += `<td><button class="delete-row-btn" data-id=${id}><i class="fa fa-trash"></i> Delete</td>`;
+        tableHtml += `<td><button class="edit-row-btn" data-id=${id}><i class="fa fa-edit"></i> Edit</td>`;
         tableHtml += "</tr>";
     });
 

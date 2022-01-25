@@ -15,28 +15,23 @@ main{
     color: white;
 }
 
-/* tr:nth-child(odd) {
-    background-color: #D6EEEE;
-  } */
+tr:nth-child(odd) {
+    background-color: #cae8ca;
+  }
 
 
-/* table, th, td {
+table, th, td {
     border: 1px solid white;
     border-collapse: collapse;
-  } */
+  }
   /* th, td {
     background-color: #cae8ca;
   }  */
   /* tr:nth-child(even) {
     background-color: rgba(150, 212, 212, 0.4);
-  }
-  
-  th:nth-child(even),td:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
   } */
-  * {
-    box-sizing: border-box;
-  }
+  
+
   
   .row {
     display: flex;
@@ -95,16 +90,14 @@ main{
   }
 
   .open-button {
-    background-color: #555;
+    background-color: rgba(92, 36, 36, 0.692);
     color: white;
-    padding: 16px 20px;
-    border: none;
+    padding: 5px 100px;
+    /* width: 100%; */
+    /* border: none; */
     cursor: pointer;
+    position: center;
     opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
-    width: 280px;
   }
   
   /* The popup form - hidden by default */

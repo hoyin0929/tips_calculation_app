@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./style.css">
     <title>Edit Employee</title>
     <link rel="icon" href="./image/mumu.jfif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="topnav">
@@ -21,6 +22,11 @@
         <button id="add-name-btn">Add Employee</button>
 
         <br><br><br>
+        <section hidden id="update-row">
+            <label>Update Percentage:</label>
+            <input type="text" id="update-percentage">
+            <button id="update-row-btn">Update</button>
+        </section>
         <div hidden>
             <input placeholder = "search by date" id = "search-input">
             <button id="search-btn">Search</button>
@@ -36,11 +42,6 @@
             </thead>
             <tbody></tbody>
         </table> 
-        <section hidden id="update-row">
-            <label>Update Percentage:</label>
-            <input type="text" id="update-percentage">
-            <button id="update-row-btn">Update</button>
-        </section>
     </main>
     <script src="index.js"></script>
     
