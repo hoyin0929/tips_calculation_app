@@ -55,6 +55,7 @@ main{
 .topnav {
     overflow: hidden;
     background-color: #4CAF50;
+    border-radius: 5px 5px 5px 5px;
   }
 
   .topnav a {
@@ -62,7 +63,7 @@ main{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 20px;
     text-decoration: none;
   }
   
@@ -76,9 +77,10 @@ main{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    padding: 1px;
+    padding: 1px 20px;
     background-color: #cae8ca;
-    border: 2px solid #4CAF50;
+    border: 1px solid #4CAF50;
+    border-radius: 5px 5px 5px 5px;
   }
   
   div.date {
