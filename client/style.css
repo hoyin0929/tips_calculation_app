@@ -82,11 +82,6 @@ main{
     border: 1px solid #4CAF50;
     border-radius: 5px 5px 5px 5px;
   }
-  
-  div.date {
-    position: center;
-    opacity: 0.8;
-  }
 
   .open-button {
     background-color: rgba(92, 36, 36, 0.692);
