@@ -3,6 +3,7 @@ main{
     margin: 50px auto;
     text-align: center;
 }
+
 .delete-row-btn {
     background-color: #f77b72;
     border: none;
@@ -75,9 +76,14 @@ main{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    padding: 5px;
+    padding: 1px;
     background-color: #cae8ca;
     border: 2px solid #4CAF50;
+  }
+  
+  div.date {
+    position: center;
+    opacity: 0.8;
   }
 
   .open-button {

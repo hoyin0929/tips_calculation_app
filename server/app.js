@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
+var router = express.Router();
 
 const dbService = require('./dbService');
 const { request } = require('express');
@@ -11,6 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+
+app.get("/", function (req, res) {
+    res.sendFile('../client/index.html', { root: __dirname });
+})
 
 //create
 app.post('/insert', (request, response) => {

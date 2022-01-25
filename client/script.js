@@ -203,6 +203,9 @@ calculateBtn.onclick = function(){
     var pmTotal = (Number(totalCash) + Number(totalCredit) - Number(amTotal)).toFixed(2); 
     document.querySelector('#amTotal').innerHTML = amTotal;
     document.querySelector('#pmTotal').innerHTML = pmTotal;
+    var x = document.getElementById("today");
+    var currentVal = x.value;
+    console.log(currentVal);
 
 }
 
