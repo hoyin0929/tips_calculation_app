@@ -13,8 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
 
+// define the first route
 app.get("/", function (req, res) {
-    res.sendFile('../client/index.html', { root: __dirname });
+    res.sendFile('index.html', { root: __dirname });
 })
 
 //create
@@ -96,4 +97,4 @@ app.delete('/delete/:id', (request, response) => {
 
 });
 
-app.listen(process.env.PORT, () => console.log('app is tunning'));
+app.listen(process.env.PORT, () => console.log('app is running'));
