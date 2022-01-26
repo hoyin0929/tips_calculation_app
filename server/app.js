@@ -16,7 +16,7 @@ const path = require('path');
 
 // define the first route
 app.get("/", (req, res) => {
-    res.render('index.html');
+    res.render('../client/index.html');
 });
 
 //create
