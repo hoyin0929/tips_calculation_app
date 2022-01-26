@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended : false }));
 const path = require('path');
 
 // define the first route
-// app.get("/", (req, res) => {
-//     res.render('../client/index.html');
-// });
+router.get('/', function (req, res) {
+    res.send('../client/calculate.html');
+  });
 
 //create
 app.post('/insert', (request, response) => {

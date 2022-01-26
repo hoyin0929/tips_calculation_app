@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Edit Employee</title>
+    <link rel="icon" href="./image/mumu.jfif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Tips Calculate</a>
+        <a href="edit.html">Edit Employee</a>
+        <a href="overview.html">Tips Overview</a>    
+        </div> 
+        <div class="sticky"><h2><label for ="today"> MUMU Hot Pot (Foster City)</label></h2></div></br>
+              
+        </div>
+    <main>
+        <label>Name:</label>
+        <input type = "text" id = "name-input" placeholder = "enter new employee name">
+        <button id="add-name-btn">Add Employee</button>
+
+        <br><br><br>
+        <section hidden id="update-row">
+            <label>Update Percentage:</label>
+            <input type="text" id="update-percentage">
+            <button id="update-row-btn">Update</br></br>
+        </section>
+        <div hidden>
+            <input placeholder = "search by date" id = "search-input">
+            <button id="search-btn">Search</button>
+        </div>
+        <table id="table">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Tips Percentage</th>
+                <th>Delete</th>
+                <th>Edit</th>
+
+            </thead>
+            <tbody></tbody>
+        </table> 
+    </main>
+    <script src="index.js"></script>
+    
+</body>
+</html>
