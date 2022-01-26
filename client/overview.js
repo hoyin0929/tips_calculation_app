@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function(){
     .then(data => loadTipTable(data['data']))
 });
 
+const searchBtn = document.querySelector('#search-btn');
+
+searchBtn.onclick = function() {
+    const searchValue = document.querySelector('#search-input').value;
+    console.log(searchValue)
+    fetch('http://localhost:5000/search/' + searchValue)
+    .then(response => response.json())
+    .then(data => loadTipTable(data['data']));
+}
+
 function loadTipTable(data){
     const table = document.querySelector('table tbody');
 

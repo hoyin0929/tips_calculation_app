@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended : false }));
 
 
 // define the first route
-app.get("/", function (req, res) {
-    res.sendFile('./client/calculate.html', { root: __dirname });
-})
+// app.get("/", function (req, res) {
+//     res.sendFile('calculate.html', { root: __dirname });
+// })
 
 //create
 app.post('/insert', (request, response) => {
@@ -35,11 +35,11 @@ app.post('/insert', (request, response) => {
 app.post('/tip', (request, response) => {
     //console.log('I got a request!')
     //console.log(request.body);
-    let {employee, amTip, pmTip} = request.body;
+    let {employee, date, amTip, pmTip} = request.body;
     employee = parseInt(employee, 10);
     const db = dbService.getDbServiceInstance();
 
-    const result = db.updateTips(employee, amTip, pmTip);
+    const result = db.updateTips(employee, date, amTip, pmTip);
     result
     .then(data => response.json({ data: data}))
     .catch(err => console.log(err));
@@ -95,6 +95,17 @@ app.delete('/delete/:id', (request, response) => {
     .then(data => response.json({success: data}))
     .catch(err => console.log(err));
 
+});
+
+app.get('/search/:date', (request, response) => {
+    const { date } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.searchByDate(date);
+    
+    result
+    .then(data => response.json({data : data}))
+    .catch(err => console.log(err));
 });
 
 app.listen(process.env.PORT, () => console.log('app is running'));

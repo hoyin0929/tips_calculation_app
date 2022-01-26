@@ -32,7 +32,7 @@ class DbService{
                     resolve(results);       
                 })
             });
-            console.log(response);
+            //console.log(response);
             return response;
         } catch (error){
             console.log(error);
@@ -118,12 +118,12 @@ class DbService{
         }
     }
 
-    async updateTips(employee, amTip, pmTip){
+    async updateTips(employee, date, amTip, pmTip){
         try{
             employee = parseInt(employee, 10);
             //console.log(typeof 'employee');
-            //console.log(employee);
-            let date = new Date();
+            console.log(date);
+            //let date = new Date();
             // date.toDateString();
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO tips (employee, date, amTip, pmTip) VALUES(?,?,?,?);";
@@ -142,6 +142,25 @@ class DbService{
             };
         console.log(result);
         }catch(error){
+            console.log(error);
+        }
+    }
+
+    async searchByDate(date) {
+        try {
+            const response = await new Promise((resolve, reject) => {
+                const query = 
+                "SELECT  employee.name, tips.date as date, MAX(tips.amTip) as amTip, MAX(tips.pmTip) as pmTip FROM tips CROSS JOIN employee WHERE employee.id = tips.employee AND date = ? GROUP BY employee.name ORDER BY tips.employee";
+
+                connection.query(query, [date], (err, results) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(results);
+                })
+            });
+            console.log(response);
+            return response;
+
+        } catch (error) {
             console.log(error);
         }
     }

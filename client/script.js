@@ -72,6 +72,11 @@ btn.addEventListener('click', (event) => {
     //updateTips(event.target.dataset.id);
     var amTip = 0;
     var pmTip = 0;
+
+    var x = document.getElementById("today");
+    var date = x.value;
+    console.log(date);
+
     // const update = document.querySelectorALL('input[name="am"]:checked');
     amcheckboxes.forEach((checkbox) => {
         if (checkbox.value == "0" ) {
@@ -86,7 +91,7 @@ btn.addEventListener('click', (event) => {
                 },
                 body: JSON.stringify({
                     employee,
-                    // date: new Date(),
+                    date: date,
                     amTip: am_kit_tips,
                     pmTip: pmTip
                 })
@@ -119,7 +124,7 @@ btn.addEventListener('click', (event) => {
                 },
                 body: JSON.stringify({
                     employee,
-                    // date: new Date(),
+                    date: date,
                     amTip: amTip,
                     pmTip: pmTip
                 })
@@ -142,6 +147,7 @@ btn.addEventListener('click', (event) => {
                 },
                 body: JSON.stringify({
                     employee,
+                    date: date,
                     amTip: am_kit_tips,
                     pmTip: pm_kit_tips
                 })
@@ -152,16 +158,11 @@ btn.addEventListener('click', (event) => {
         if (checkbox.value != "0" ) {
 
             pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
-            //console.log(pmTip);
-            //console.log(typeof 'checkbox.id');
             console.log(checkbox.id);
 
             if (pmPer > 1) {
                 pm_server_total = (pm_server_total - pmTip).toFixed(2);
                 pmPer = (pmPer - checkbox.value).toFixed(2);
-                // console.log(pmTip);
-                // console.log(pmPer);
-                // console.log(pm_server_total);
             }else{
                 pmTip = pm_server_total
             }
@@ -175,6 +176,7 @@ btn.addEventListener('click', (event) => {
                 },
                 body: JSON.stringify({
                     employee,
+                    date: date,
                     amTip: amTip,
                     pmTip: pmTip
                 })
