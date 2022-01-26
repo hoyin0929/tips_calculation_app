@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
     <div class="topnav">
-        <a href="calculate.html">Home</a>
+        <a href="calculate.html">Tips Calculate</a>
         <a href="index.html">Edit Employee</a>
         <a href="overview.html">Tips Overview</a>   
         </div> 
@@ -17,7 +17,8 @@
     <main>
 
         <div>
-            <input placeholder = "search by date" id = "search-input">
+            <label for="closingDate"><b>Select closing date:</b></label>   
+            <input type="date" id="today" style="width: 125px;" value="2022-01-01">
             <button id="search-btn">Search</button></br></br></br>
         </div>
          <table id="tipTable" class="display" cellspacing="0">

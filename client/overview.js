@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
 const searchBtn = document.querySelector('#search-btn');
 
 searchBtn.onclick = function() {
-    const searchValue = document.querySelector('#search-input').value;
+    const searchValue = document.querySelector('#today').value;
     console.log(searchValue)
     fetch('http://localhost:5000/search/' + searchValue)
     .then(response => response.json())
@@ -16,6 +16,10 @@ searchBtn.onclick = function() {
 
 function loadTipTable(data){
     const table = document.querySelector('table tbody');
+    if (data.length === 0){
+        table.innerHTML = "<tr><td class='no-data' colspan='4'>No Data</td></tr>";
+        return;
+    }
 
     let tableHtml = "";
 

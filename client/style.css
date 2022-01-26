@@ -4,6 +4,11 @@ main{
     text-align: center;
 }
 
+.no-data{
+   text-align: center;
+   border: 1px;
+}
+
 .delete-row-btn {
     background-color: #f77b72;
     border: none;
