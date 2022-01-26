@@ -12,11 +12,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+const path = require('path');
 
 // define the first route
-// app.get("/", function (req, res) {
-//     res.sendFile('calculate.html', { root: __dirname });
-// })
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 //create
 app.post('/insert', (request, response) => {
