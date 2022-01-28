@@ -56,7 +56,7 @@ btn.addEventListener('click', (event) => {
     
     var am_kitchen_total = (Number(amTotal) * 0.1);
     var am_kit_tips = float2int(Number(am_kitchen_total) / Number(amKit));
-    pm_kitchen_total = am_kit_tips * amKit;
+    am_kitchen_total = am_kit_tips * Number(amKit);
     var am_server_total = amTotal - am_kitchen_total;
     // console.log(am_server_total);
 
@@ -101,19 +101,20 @@ btn.addEventListener('click', (event) => {
 
         if (checkbox.value != "0" ) {
             
-            amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
-            //console.log(amTip);
+           
+            console.log(amTip);
             //console.log(typeof 'checkbox.id');
             console.log(checkbox.id);
 
             if (amPer > 1) {
+                amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
                 am_server_total = (am_server_total - amTip).toFixed(2);
                 amPer = (amPer - checkbox.value).toFixed(2);
-                // console.log(amTip);
-                // console.log(amPer);
-                // console.log(am_server_total);
+                //  console.log(amTip);
+                //  console.log(amPer);
+                //  console.log(am_server_total);
             }else{
-                amTip = am_server_total
+                amTip = am_server_total;
             }
              
             let employee = checkbox.id;
@@ -157,10 +158,11 @@ btn.addEventListener('click', (event) => {
 
         if (checkbox.value != "0" ) {
 
-            pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
-            console.log(checkbox.id);
+            // pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
+            // console.log(checkbox.id);
 
             if (pmPer > 1) {
+                pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                 pm_server_total = (pm_server_total - pmTip).toFixed(2);
                 pmPer = (pmPer - checkbox.value).toFixed(2);
             }else{
