@@ -16,7 +16,7 @@ const path = require('path');
 
 // define the first route
 router.get('/', function (req, res) {
-    res.send('../client/calculate.html');
+    res.render('../client/index.html');
   });
 
 //create
