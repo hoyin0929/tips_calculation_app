@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hoyin0929/mumu_closing#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "mysql": "github:mysqljs/mysql"
   },
