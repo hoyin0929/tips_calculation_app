@@ -1,9 +1,12 @@
+const http = require('http');
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
-var router = express.Router();
+
+app.use(express.static("public"));
 
 const dbService = require('./dbService');
 const { request } = require('express');
@@ -15,9 +18,9 @@ app.use(express.urlencoded({ extended : false }));
 const path = require('path');
 
 // define the first route
-router.get('/', function (req, res) {
-    res.render('../client/index.html');
-  });
+app.get("/", function (req, res) {
+    res.sendFile('index.html', { root: __dirname });
+})
 
 //create
 app.post('/insert', (request, response) => {
