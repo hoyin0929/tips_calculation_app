@@ -16,7 +16,7 @@ document.querySelector('table tbody').addEventListener('click', function(event){
 
 
 function deleteRowbyId(id){
-    fetch('http://localhost:5000/delete/' + id,{
+    fetch('https://restaurant-calculate-system.herokuapp.com/delete/' + id,{
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -50,7 +50,7 @@ addBtn.onclick = function () {
         body: JSON.stringify({ name : name})
     }*/
 
-    fetch('http://localhost:5000/insert', {
+    fetch('https://restaurant-calculate-system.herokuapp.com/insert', {
     headers: {
         'Content-type': 'application/json'
     },
@@ -125,7 +125,7 @@ const updateBtn = document.querySelector('#update-row-btn');
 updateBtn.onclick = function(){
     const updateTip = document.querySelector('#update-percentage');
     const roles = 'server'
-    fetch('http://localhost:5000/update', {
+    fetch('https://restaurant-calculate-system.herokuapp.com/update', {
         method: 'PATCH',
         headers: {
             'Content-type' : 'application/json'

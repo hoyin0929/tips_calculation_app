@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('http://localhost:5000/getAll')
+    fetch('https://restaurant-calculate-system.herokuapp.com/getAll')
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']))
 });
 
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('http://localhost:5000/getTips')
+    fetch('https://restaurant-calculate-system.herokuapp.com/getTips')
     .then(response => response.json())
     .then(data => loadTipTable(data['data']))
 });
@@ -84,7 +84,7 @@ btn.addEventListener('click', (event) => {
             //const employee = checkbox.id;
             let employee = checkbox.id;
 
-            fetch('http://localhost:5000/tip', {
+            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -118,7 +118,7 @@ btn.addEventListener('click', (event) => {
             }
              
             let employee = checkbox.id;
-            fetch('http://localhost:5000/tip', {
+            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -141,7 +141,7 @@ btn.addEventListener('click', (event) => {
             am_kit_tips = 0;
             console.log(checkbox.id);
             let employee = checkbox.id;
-            fetch('http://localhost:5000/tip', {
+            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -171,7 +171,7 @@ btn.addEventListener('click', (event) => {
              
             let employee = checkbox.id;
 
-            fetch('http://localhost:5000/tip', {
+            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
