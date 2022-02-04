@@ -6,7 +6,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-app.use(express.static("public"));
+app.use(express.static("client"));
 
 const dbService = require('./dbService');
 const { request } = require('express');
