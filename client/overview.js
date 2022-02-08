@@ -9,7 +9,7 @@ const searchBtn = document.querySelector('#search-btn');
 searchBtn.onclick = function() {
     const searchValue = document.querySelector('#today').value;
     console.log(searchValue)
-    fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
+    fetch('https://restaurant-calculate-system.herokuapp.com/search' + searchValue)
     .then(response => response.json())
     .then(data => loadTipTable(data['data']));
 }
