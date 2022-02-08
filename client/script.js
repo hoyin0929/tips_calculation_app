@@ -248,7 +248,7 @@ function loadTipTable(data){
     data.forEach(function({name, date, amTip, pmTip}){
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
-        tableHtml += `<td>${date.toDateString()}</td>`;
+        tableHtml += `<td>${date}</td>`;
         tableHtml += `<td>$${amTip}</td>`;
         tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";
