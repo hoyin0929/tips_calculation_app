@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended : false }));
 const path = require('path');
 
 // define the first route
-app.get("/", function (req, res) {
-    res.sendFile('index.html', { root: __dirname });
+app.get("/", function (request, response) {
+    response.sendFile('index.html', { root: __dirname });
 })
 
 //create
@@ -112,4 +112,4 @@ app.get('/search/:date', (request, response) => {
     .catch(err => console.log(err));
 });
 
-app.listen(process.env.PORT, () => console.log('app is running'));
+app.listen(process.env.PORT || 5000, () => console.log('app is running'));
