@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 let instance = null;
 dotenv.config();
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host:"us-cdbr-east-05.cleardb.net",
     user: "b6fdd36d83bf44",
     password: "af8c60b3",
