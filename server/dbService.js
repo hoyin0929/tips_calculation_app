@@ -3,21 +3,46 @@ const dotenv = require('dotenv');
 let instance = null;
 dotenv.config();
 
-const connection = mysql.createConnection({
+// const connection = mysql.createConnection({
+//     host:"us-cdbr-east-05.cleardb.net",
+//     user: "b6fdd36d83bf44",
+//     password: "af8c60b3",
+//     database: "heroku_8f7d06d86a14fd5"
+// });
+
+var db_config = {
     host:"us-cdbr-east-05.cleardb.net",
     user: "b6fdd36d83bf44",
     password: "af8c60b3",
     database: "heroku_8f7d06d86a14fd5"
-});
+  };
 
-mysql://b6fdd36d83bf44:af8c60b3@us-cdbr-east-05.cleardb.net/heroku_8f7d06d86a14fd5
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config);
+
+//mysql://b6fdd36d83bf44:af8c60b3@us-cdbr-east-05.cleardb.net/heroku_8f7d06d86a14fd5
 
 connection.connect((err) => {
     if (err){
         console.log(err.message);
+        setTimeout(handleDisconnect, 2000);
     }
     console.log('db ' + connection.state);
 })
+
+connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+        handleDisconnect();
+    } else {                                      
+        throw err;                                
+      }
+    });
+  }
+  
+  handleDisconnect();
 
 class DbService{
     static getDbServiceInstance(){
