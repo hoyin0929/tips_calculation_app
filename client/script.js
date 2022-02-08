@@ -246,6 +246,9 @@ function loadTipTable(data){
     let tableHtml = "";
 
     data.forEach(function({name, date, amTip, pmTip}){
+
+        var date = new Date();
+        date.setDate(date.getDate() + 1);
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
         tableHtml += `<td>${new Date(date).toDateString()}</td>`;
