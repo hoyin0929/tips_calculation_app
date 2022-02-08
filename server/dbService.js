@@ -10,6 +10,8 @@ const connection = mysql.createConnection({
     database: "heroku_8f7d06d86a14fd5"
 });
 
+mysql://b6fdd36d83bf44:af8c60b3@us-cdbr-east-05.cleardb.net/heroku_8f7d06d86a14fd5
+
 connection.connect((err) => {
     if (err){
         console.log(err.message);
