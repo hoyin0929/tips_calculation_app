@@ -244,10 +244,6 @@ function loadTipTable(data){
     const table = document.querySelectorAll('table tbody')[1];
 
     let tableHtml = "";
-    var options = { weekday: "long", 
-                    year: "numeric", 
-                    month: "short", 
-                    day: "numeric" };
 
     data.forEach(function({name, date, amTip, pmTip}){
         tableHtml += "<tr>";
