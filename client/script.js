@@ -244,11 +244,15 @@ function loadTipTable(data){
     const table = document.querySelectorAll('table tbody')[1];
 
     let tableHtml = "";
+    var options = { weekday: "long", 
+                    year: "numeric", 
+                    month: "short", 
+                    day: "numeric" };
 
     data.forEach(function({name, date, amTip, pmTip}){
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
-        tableHtml += `<td>${new Date(date).replace(/-/g, '\/').toLocoleDateString()}</td>`;
+        tableHtml += `<td>${new Date(date).toLocoleDateString("en-US", options)}</td>`;
         tableHtml += `<td>$${amTip}</td>`;
         tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";
