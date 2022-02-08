@@ -10,14 +10,6 @@ document.addEventListener('DOMContentLoaded', function(){
     .then(data => loadTipTable(data['data']))
 });
 
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
-
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', (event) => {
     let amcheckboxes = document.querySelectorAll('input[name="am"]:checked');
