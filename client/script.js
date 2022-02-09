@@ -219,8 +219,8 @@ function loadHTMLTable(data){
     const table = document.querySelector('table tbody');
     
     //console.log(data.length);
-    if (data.length === 0 && date.length > 1){
-            table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+    if (data.length === 0){
+            table.innerHTML = "<tr><td class='no-data' colspan='3'>No Data</td></tr>";
             return;
         }
 
@@ -230,9 +230,7 @@ function loadHTMLTable(data){
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
         tableHtml += `<td><input type="checkbox" name="am" id=${id} value=${tip_per}></td>`;
-        // tableHtml += `<td>$${tips}</td>`;
         tableHtml += `<td><input type="checkbox" name="pm" id=${id} value=${tip_per}></td>`;
-        // tableHtml += `<td>$${tips}</td>`;
         tableHtml += "</tr>";
     });
 
@@ -243,6 +241,11 @@ function loadHTMLTable(data){
 
 function loadTipTable(data){
     const table = document.querySelectorAll('table tbody')[1];
+    
+    if(date.length > 1){
+        table.innerHTML = "<tr><td class='no-data' colspan='4'>No Data</td></tr>";
+        return;
+    }
 
     let tableHtml = "";
 
