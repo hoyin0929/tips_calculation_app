@@ -15,6 +15,12 @@ main{
     color: white;
 }
 
+section .tip-button {
+  margin-left: 85%;
+  margin-top: 25px;
+  padding: 5px 100px;
+}
+
 .edit-row-btn {
     background-color: #4CAF50;
     border: none;
@@ -103,9 +109,7 @@ main{
     color: white;
     padding: 5px 100px;
     cursor: pointer;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
+    display:flex;
     opacity: 0.8;
   }
   .output {
