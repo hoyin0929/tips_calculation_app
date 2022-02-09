@@ -1,0 +1,5 @@
+# Local development
+*.env
+
+# Node build artifacts
+node_modules
