@@ -4,10 +4,10 @@ let instance = null;
 dotenv.config();
 
 var db_config = {
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    host: us-cdbr-east-05.cleardb.net,
+    user: b6fdd36d83bf44,
+    password: af8c60b3,
+    database: heroku_8f7d06d86a14fd5,
   };
 
 var connection;
