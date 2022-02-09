@@ -40,15 +40,12 @@ const addBtn = document.querySelector('#add-name-btn');
 addBtn.onclick = function () {
     const nameInput = document.querySelector('#name-input');
     const name = nameInput.value;
-    nameInput.value = "";
 
-    /*const options = {
-        headers: {
-            'Content-type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify({ name : name})
-    }*/
+    if (nameInput.value === ""){
+        alert("Please Enter a Name!");
+        return;
+    }
+    nameInput.value = "";
 
     fetch('https://restaurant-calculate-system.herokuapp.com/insert', {
     headers: {
@@ -124,7 +121,6 @@ const updateBtn = document.querySelector('#update-row-btn');
 
 updateBtn.onclick = function(){
     const updateTip = document.querySelector('#update-percentage');
-    const roles = 'server'
     fetch('https://restaurant-calculate-system.herokuapp.com/update', {
         method: 'PATCH',
         headers: {
