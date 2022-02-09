@@ -23,7 +23,7 @@ main{
 }
 
 .tip-button {
-  margin-top: 25px;
+  margin: 25px;
   padding: 5px 100px;
   background-color: rgba(92, 36, 36, 0.692);
   color: white;
