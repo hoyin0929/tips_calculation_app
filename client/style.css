@@ -92,11 +92,9 @@ main{
     background-color: rgba(92, 36, 36, 0.692);
     color: white;
     padding: 5px 100px;
-    width: 100%;
-    /* border: none; */
     cursor: pointer;
-    position: center;
     opacity: 0.8;
+    margin-top: 25px;
   }
 
   .tip-button {
