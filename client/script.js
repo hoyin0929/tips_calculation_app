@@ -14,172 +14,179 @@ const btn = document.querySelector('#btn');
 btn.addEventListener('click', (event) => {
     let amcheckboxes = document.querySelectorAll('input[name="am"]:checked');
     let pmcheckboxes = document.querySelectorAll('input[name="pm"]:checked');
-    
-    let amKit = 0;
-    let pmKit = 0;
+    if (amcheckboxes.length > 0 && pmcheckboxes.length > 0) {
+        let amKit = 0;
+        let pmKit = 0;
 
-    let am = [];
-    amcheckboxes.forEach((checkbox) => {
-        am.push(checkbox.value);
-        // console.log(checkbox.value);
-        // console.log(checkbox.dataset.id);
-        if(checkbox.value === "0"){
-            amKit++;
-        }
-        // console.log(amKit);
-    });
-    let amPer = am.reduce(add, 0);
-    //alert(amPer);
-
-    let pm = [];
-    pmcheckboxes.forEach((checkbox) => {
-        pm.push(checkbox.value);
-        if(checkbox.value === "0"){
-            pmKit++;
-        }
-    });
-    let pmPer = pm.reduce(add, 0);
-    
-    // alert(amKit);
-    // alert(pmKit);
-
-    var amTotal = document.getElementById("amTotal").value;
-    var pmTotal = document.getElementById("pmTotal").value;
-    
-    var am_kitchen_total = (Number(amTotal) * 0.1);
-    var am_kit_tips = float2int(Number(am_kitchen_total) / Number(amKit));
-    am_kitchen_total = am_kit_tips * Number(amKit);
-    var am_server_total = amTotal - am_kitchen_total;
-    // console.log(am_server_total);
-
-    var pm_kitchen_total = (Number(pmTotal) * 0.1);
-    var pm_kit_tips = float2int(Number(pm_kitchen_total) / Number(pmKit));
-    pm_kitchen_total = pm_kit_tips * Number(pmKit);
-    var pm_server_total = pmTotal - pm_kitchen_total;
-
-    console.log(am_kit_tips);
-    console.log(pm_kit_tips);
-    //console.log(typeof 'amcheckboxes.dataset.id')
-
-    //updateTips(event.target.dataset.id);
-    var amTip = 0;
-    var pmTip = 0;
-
-    var x = document.getElementById("today");
-    var date = x.value;
-    console.log(date);
-
-    // const update = document.querySelectorALL('input[name="am"]:checked');
-    amcheckboxes.forEach((checkbox) => {
-        if (checkbox.value == "0" ) {
-            console.log(checkbox.id);
-            //const employee = checkbox.id;
-            let employee = checkbox.id;
-
-            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    employee,
-                    date: date,
-                    amTip: am_kit_tips,
-                    pmTip: pmTip
-                })
-            })
-                .then(response => response.json()) 
-        }
-
-        if (checkbox.value != "0" ) {
-            
-           
-            console.log(amTip);
-            //console.log(typeof 'checkbox.id');
-            console.log(checkbox.id);
-
-            if (amPer > 1) {
-                amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
-                am_server_total = (am_server_total - amTip).toFixed(2);
-                amPer = (amPer - checkbox.value).toFixed(2);
-                //  console.log(amTip);
-                //  console.log(amPer);
-                //  console.log(am_server_total);
-            }else{
-                amTip = am_server_total;
+        let am = [];
+        amcheckboxes.forEach((checkbox) => {
+            am.push(checkbox.value);
+            // console.log(checkbox.value);
+            // console.log(checkbox.dataset.id);
+            if (checkbox.value === "0") {
+                amKit++;
             }
-             
-            let employee = checkbox.id;
-            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    employee,
-                    date: date,
-                    amTip: amTip,
-                    pmTip: pmTip
-                })
-            })
-                .then(response => response.json())                
-        }
-        amTip = 0;        
-    });
+            // console.log(amKit);
+        });
+        let amPer = am.reduce(add, 0);
+        //alert(amPer);
 
-    pmcheckboxes.forEach((checkbox) => {
-        
-        if (checkbox.value == "0" ) {
-            am_kit_tips = 0;
-            console.log(checkbox.id);
-            let employee = checkbox.id;
-            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    employee,
-                    date: date,
-                    amTip: am_kit_tips,
-                    pmTip: pm_kit_tips
-                })
-            })
-                .then(response => response.json()) 
-        }
-
-        if (checkbox.value != "0" ) {
-
-            // pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
-            // console.log(checkbox.id);
-
-            if (pmPer > 1) {
-                pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
-                pm_server_total = (pm_server_total - pmTip).toFixed(2);
-                pmPer = (pmPer - checkbox.value).toFixed(2);
-            }else{
-                pmTip = pm_server_total
+        let pm = [];
+        pmcheckboxes.forEach((checkbox) => {
+            pm.push(checkbox.value);
+            if (checkbox.value === "0") {
+                pmKit++;
             }
-             
-            let employee = checkbox.id;
+        });
+        let pmPer = pm.reduce(add, 0);
 
-            fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    employee,
-                    date: date,
-                    amTip: amTip,
-                    pmTip: pmTip
+        // alert(amKit);
+        // alert(pmKit);
+
+        var amTotal = document.getElementById("amTotal").value;
+        var pmTotal = document.getElementById("pmTotal").value;
+
+        var am_kitchen_total = (Number(amTotal) * 0.1);
+        var am_kit_tips = float2int(Number(am_kitchen_total) / Number(amKit));
+        am_kitchen_total = am_kit_tips * Number(amKit);
+        var am_server_total = amTotal - am_kitchen_total;
+        // console.log(am_server_total);
+
+        var pm_kitchen_total = (Number(pmTotal) * 0.1);
+        var pm_kit_tips = float2int(Number(pm_kitchen_total) / Number(pmKit));
+        pm_kitchen_total = pm_kit_tips * Number(pmKit);
+        var pm_server_total = pmTotal - pm_kitchen_total;
+
+        console.log(am_kit_tips);
+        console.log(pm_kit_tips);
+        //console.log(typeof 'amcheckboxes.dataset.id')
+
+        //updateTips(event.target.dataset.id);
+        var amTip = 0;
+        var pmTip = 0;
+
+        var x = document.getElementById("today");
+        var date = x.value;
+        console.log(date);
+
+        // const update = document.querySelectorALL('input[name="am"]:checked');
+        amcheckboxes.forEach((checkbox) => {
+            if (checkbox.value == "0") {
+                console.log(checkbox.id);
+                //const employee = checkbox.id;
+                let employee = checkbox.id;
+
+                fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employee,
+                        date: date,
+                        amTip: am_kit_tips,
+                        pmTip: pmTip
+                    })
                 })
-            })
-                .then(response => response.json())                
-        }
-        pmTip = 0;
-        
-    });
+                    .then(response => response.json())
+            }
+
+            if (checkbox.value != "0") {
+
+
+                console.log(amTip);
+                //console.log(typeof 'checkbox.id');
+                console.log(checkbox.id);
+
+                if (amPer > 1) {
+                    amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
+                    am_server_total = (am_server_total - amTip).toFixed(2);
+                    amPer = (amPer - checkbox.value).toFixed(2);
+                    //  console.log(amTip);
+                    //  console.log(amPer);
+                    //  console.log(am_server_total);
+                } else {
+                    amTip = am_server_total;
+                }
+
+                let employee = checkbox.id;
+                fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employee,
+                        date: date,
+                        amTip: amTip,
+                        pmTip: pmTip
+                    })
+                })
+                    .then(response => response.json())
+            }
+            amTip = 0;
+        });
+
+        pmcheckboxes.forEach((checkbox) => {
+
+            if (checkbox.value == "0") {
+                am_kit_tips = 0;
+                console.log(checkbox.id);
+                let employee = checkbox.id;
+                fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employee,
+                        date: date,
+                        amTip: am_kit_tips,
+                        pmTip: pm_kit_tips
+                    })
+                })
+                    .then(response => response.json())
+            }
+
+            if (checkbox.value != "0") {
+
+                // pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
+                // console.log(checkbox.id);
+
+                if (pmPer > 1) {
+                    pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
+                    pm_server_total = (pm_server_total - pmTip).toFixed(2);
+                    pmPer = (pmPer - checkbox.value).toFixed(2);
+                } else {
+                    pmTip = pm_server_total
+                }
+
+                let employee = checkbox.id;
+
+                fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        employee,
+                        date: date,
+                        amTip: amTip,
+                        pmTip: pmTip
+                    })
+                })
+                    .then(response => response.json())
+            }
+            pmTip = 0;
+
+            // fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
+            //     .then(response => response.json())
+            //     .then(data => loadTipTable(data['data']));
+
+        });
+    } else {
+        alert("Please select employees for each shift");
+    }
 
 });  
 
