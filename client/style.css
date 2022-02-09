@@ -15,10 +15,20 @@ main{
     color: white;
 }
 
-section .tip-button {
-  margin-left: 85%;
+.center {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tip-button {
   margin-top: 25px;
   padding: 5px 100px;
+  background-color: rgba(92, 36, 36, 0.692);
+  color: white;
+  padding: 5px 100px;
+  opacity: 0.8;
 }
 
 .edit-row-btn {
@@ -68,6 +78,7 @@ section .tip-button {
     overflow: hidden;
     background-color: #4CAF50;
     border-radius: 5px 5px 5px 5px;
+    width: 100%;
   }
 
   .topnav a {
@@ -104,14 +115,7 @@ section .tip-button {
     margin-top: 25px;
   }
 
-  .tip-button {
-    background-color: rgba(92, 36, 36, 0.692);
-    color: white;
-    padding: 5px 100px;
-    cursor: pointer;
-    display:flex;
-    opacity: 0.8;
-  }
+
   .output {
     position: center;
   }
