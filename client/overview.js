@@ -16,8 +16,14 @@ searchBtn.onclick = function() {
 
 function loadTipTable(data){
     const table = document.querySelector('table tbody');
-    if (data.length === 0){
+    const searchValue = document.querySelector('#today').value;
+    if (data.length === 0) {
         table.innerHTML = "<tr><td class='no-data' colspan='4'>No Data</td></tr>";
+        return;
+    }
+
+    if(searchValue === ""){
+        table.innerHTML = "<tr><td class='no-data' colspan='4'>Please Select Closing Date</td></tr>";
         return;
     }
 
