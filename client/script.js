@@ -179,9 +179,11 @@ btn.addEventListener('click', (event) => {
             }
             pmTip = 0;
 
-            // fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
-            //     .then(response => response.json())
-            //     .then(data => loadTipTable(data['data']));
+        const searchValue = document.querySelector('#today').value;
+        console.log(searchValue)
+        fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
+        .then(response => response.json())
+        .then(data => loadTipTable(data['data']));
 
         });
     } else {
@@ -217,7 +219,7 @@ function loadHTMLTable(data){
     const table = document.querySelector('table tbody');
     
     //console.log(data.length);
-    if (data.length === 0){
+    if (data.length === 0 && date.length > 1){
             table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
             return;
         }
