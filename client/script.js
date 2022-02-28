@@ -98,7 +98,7 @@ btn.addEventListener('click', (event) => {
                 //console.log(typeof 'checkbox.id');
                 console.log(checkbox.id);
 
-                if (amPer > 1) {
+                if (amPer > 0.9) {
                     amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
                     am_server_total = (am_server_total - amTip).toFixed(2);
                     amPer = (amPer - checkbox.value).toFixed(2);
@@ -153,7 +153,7 @@ btn.addEventListener('click', (event) => {
                 // pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                 // console.log(checkbox.id);
 
-                if (pmPer > 1) {
+                if (pmPer > 0.9) {
                     pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                     pm_server_total = (pm_server_total - pmTip).toFixed(2);
                     pmPer = (pmPer - checkbox.value).toFixed(2);
