@@ -98,7 +98,7 @@ btn.addEventListener('click', (event) => {
                 //console.log(typeof 'checkbox.id');
                 console.log(checkbox.id);
 
-                if (amPer > 0.9) {
+                if (amPer > 1) {
                     amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
                     am_server_total = (am_server_total - amTip).toFixed(2);
                     amPer = (amPer - checkbox.value).toFixed(2);
