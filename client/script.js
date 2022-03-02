@@ -30,6 +30,7 @@ btn.addEventListener('click', (event) => {
         });
         let amPer = am.reduce(add, 0);
         //alert(amPer);
+        let am_smallest = smallest_percentage(am);
 
         let pm = [];
         pmcheckboxes.forEach((checkbox) => {
@@ -39,6 +40,7 @@ btn.addEventListener('click', (event) => {
             }
         });
         let pmPer = pm.reduce(add, 0);
+        let pm_smallest = smallest_percentage(pm);
 
         // alert(amKit);
         // alert(pmKit);
@@ -97,16 +99,17 @@ btn.addEventListener('click', (event) => {
                 console.log(amTip);
                 //console.log(typeof 'checkbox.id');
                 console.log(checkbox.id);
-
-                if (amPer > 1) {
+                
+                if (amPer ==am_smallest){
+                    amTip = am_server_total;
+                }
+                else {
                     amTip = Math.round((am_server_total * (checkbox.value)) / amPer);
                     am_server_total = (am_server_total - amTip).toFixed(2);
                     amPer = (amPer - checkbox.value).toFixed(2);
                     //  console.log(amTip);
                     //  console.log(amPer);
                     //  console.log(am_server_total);
-                } else {
-                    amTip = am_server_total;
                 }
 
                 let employee = checkbox.id;
@@ -149,16 +152,14 @@ btn.addEventListener('click', (event) => {
             }
 
             if (checkbox.value != "0") {
-
-                // pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
-                // console.log(checkbox.id);
-
-                if (pmPer > 0.9) {
+                
+                if (pmPer ==pm_smallest){
+                    pmTip = pm_server_total;
+                }
+                else {
                     pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                     pm_server_total = (pm_server_total - pmTip).toFixed(2);
                     pmPer = (pmPer - checkbox.value).toFixed(2);
-                } else {
-                    pmTip = pm_server_total
                 }
 
                 let employee = checkbox.id;
@@ -270,4 +271,15 @@ function loadTipTable(data){
 
 function float2int (value) {
     return value | 0;
+}
+
+function smallest_percentage(arr){
+    let smallestNum = arr[0];
+    
+    for(let i = 1; i < arr.length; i++) {
+          if(arr[i] < smallestNum && arr[i] != 0) {
+            smallestNum = arr[i];   
+          }
+        }
+      return smallestNum;
 }
