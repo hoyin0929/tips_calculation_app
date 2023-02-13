@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('https://restaurant-calculate-system.herokuapp.com/getAll')
+    fetch('https://mumuhotpot.onrender.com//getAll')
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']))
 });
 
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('https://restaurant-calculate-system.herokuapp.com/getTips')
+    fetch('https://mumuhotpot.onrender.com/getTips')
     .then(response => response.json())
     .then(data => loadTipTable(data['data']))
 });
@@ -77,7 +77,7 @@ btn.addEventListener('click', (event) => {
                     //const employee = checkbox.id;
                     let employee = checkbox.id;
 
-                    fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    fetch('https://mumuhotpot.onrender.com//tip', {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
@@ -108,7 +108,7 @@ btn.addEventListener('click', (event) => {
                     }
 
                     let employee = checkbox.id;
-                    fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    fetch('https://mumuhotpot.onrender.com/tip', {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
@@ -131,7 +131,7 @@ btn.addEventListener('click', (event) => {
                     am_kit_tips = 0;
                     // console.log(checkbox.id);
                     let employee = checkbox.id;
-                    fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    fetch('https://mumuhotpot.onrender.com/tip', {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
@@ -158,7 +158,7 @@ btn.addEventListener('click', (event) => {
 
                     let employee = checkbox.id;
 
-                    fetch('https://restaurant-calculate-system.herokuapp.com/tip', {
+                    fetch('https://mumuhotpot.onrender.com/tip', {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
@@ -176,7 +176,7 @@ btn.addEventListener('click', (event) => {
 
                 const searchValue = document.querySelector('#today').value;
                 // console.log(searchValue)
-                fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
+                fetch('https://mumuhotpot.onrender.com/search/' + searchValue)
                     .then(response => response.json())
                     .then(data => loadTipTable(data['data']));
 
