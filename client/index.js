@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('https://restaurant-calculate-system.herokuapp.com/getAll')
+    fetch('https://https://mumuhotpot.onrender.com//getAll')
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']));
     
@@ -16,7 +16,7 @@ document.querySelector('table tbody').addEventListener('click', function(event){
 
 
 function deleteRowbyId(id){
-    fetch('https://restaurant-calculate-system.herokuapp.com/delete/' + id,{
+    fetch('https://https://mumuhotpot.onrender.com/delete/' + id,{
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -47,7 +47,7 @@ addBtn.onclick = function () {
     }
     nameInput.value = "";
 
-    fetch('https://restaurant-calculate-system.herokuapp.com/insert', {
+    fetch('https://https://mumuhotpot.onrender.com/insert', {
     headers: {
         'Content-type': 'application/json'
     },
@@ -121,7 +121,7 @@ const updateBtn = document.querySelector('#update-row-btn');
 
 updateBtn.onclick = function(){
     const updateTip = document.querySelector('#update-percentage');
-    fetch('https://restaurant-calculate-system.herokuapp.com/update', {
+    fetch('https://https://mumuhotpot.onrender.com/update', {
         method: 'PATCH',
         headers: {
             'Content-type' : 'application/json'

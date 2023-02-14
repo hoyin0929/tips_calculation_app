@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('https://restaurant-calculate-system.herokuapp.com/getTips')
+    fetch('https://https://mumuhotpot.onrender.com/getTips')
     .then(response => response.json())
     .then(data => loadTipTable(data['data']))
 });
@@ -9,7 +9,7 @@ const searchBtn = document.querySelector('#search-btn');
 searchBtn.onclick = function() {
     const searchValue = document.querySelector('#today').value;
     console.log(searchValue)
-    fetch('https://restaurant-calculate-system.herokuapp.com/search/' + searchValue)
+    fetch('https://https://mumuhotpot.onrender.com/search/' + searchValue)
     .then(response => response.json())
     .then(data => loadTipTable(data['data']));
 }
