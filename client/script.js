@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-    fetch('https://mumuhotpot.onrender.com//getAll')
+    fetch('https://mumuhotpot.onrender.com/getAll')
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']))
 });
@@ -77,7 +77,7 @@ btn.addEventListener('click', (event) => {
                     //const employee = checkbox.id;
                     let employee = checkbox.id;
 
-                    fetch('https://mumuhotpot.onrender.com//tip', {
+                    fetch('https://mumuhotpot.onrender.com/tip', {
                         method: 'POST',
                         headers: {
                             'Content-type': 'application/json'
