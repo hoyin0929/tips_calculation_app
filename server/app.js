@@ -36,6 +36,19 @@ app.post('/insert', (request, response) => {
     .catch(err => console.log(err));
 });
 
+app.post('/insert_sf', (request, response) => {
+    console.log('I got a request!')
+    console.log(request.body);
+    const { name } = request.body;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.insertNewName_sf(name);
+
+    result
+    .then(data => response.json({data: data})) 
+    .catch(err => console.log(err));
+});
+
 app.post('/tip', (request, response) => {
     //console.log('I got a request!')
     //console.log(request.body);
