@@ -62,6 +62,16 @@ app.get('/getAll', (request, response) => {
     .catch(err => console.log(err));
 });
 
+app.get('/getAllSF', (request, response) => {
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.getAllSFData();
+    
+    result
+    .then(data => response.json({data : data}))
+    .catch(err => console.log(err));
+});
+
 app.get('/getTips', (request, response) => {
     const db = dbService.getDbServiceInstance();
 
@@ -86,6 +96,19 @@ app.patch('/update', (request, response) => {
 
 });
 
+app.patch('/update_sf', (request, response) => {
+    console.log(request.body);
+    const {id, tip_per} = request.body;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.updateTipById_sf(id, tip_per);
+
+    result
+    .then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+
+});
+
 
 //delete
 app.delete('/delete/:id', (request, response) => {
@@ -94,6 +117,19 @@ app.delete('/delete/:id', (request, response) => {
     const db = dbService.getDbServiceInstance();
  
     const result = db.deleteRowById(id);
+    
+    result
+    .then(data => response.json({success: data}))
+    .catch(err => console.log(err));
+
+});
+
+app.delete('/delete_sf/:id', (request, response) => {
+    //console.log(request.params);
+    const {id} = request.params;
+    const db = dbService.getDbServiceInstance();
+ 
+    const result = db.deleteRowById_sf(id);
     
     result
     .then(data => response.json({success: data}))
