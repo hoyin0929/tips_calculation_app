@@ -55,7 +55,6 @@ btn.addEventListener('click', (event) => {
                     pmKit++;
                 }
             });
-            alert("Please select employees for each shift");
 
             var pmPer = pm.reduce(add, 0);
             var pm_smallest = Number(smallest_percentage(pm)).toFixed(2);
@@ -205,8 +204,8 @@ btn.addEventListener('click', (event) => {
                         body: JSON.stringify({
                             employee,
                             date: date,
-                            amTip: pm_mt_tips,
-                            pmTip: pmTip
+                            amTip: am_mt_tips,
+                            pmTip: pm_mt_tips
                         })
                     })
                         .then(response => response.json())
@@ -215,7 +214,7 @@ btn.addEventListener('click', (event) => {
 
                 if (checkbox.value != "0" && checkbox.value != "0.99") {
 
-                    if (pmPer != pm_smallest) {
+                    if (pmPer.toFixed(2) != pm_smallest) {
                         pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                         pm_server_total = (pm_server_total - pmTip).toFixed(2);
                         pmPer = (pmPer - checkbox.value).toFixed(2);
