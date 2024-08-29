@@ -315,14 +315,13 @@ function loadTipTable(data){
 
     data.forEach(function({name, date, amTip, pmTip}){
 
-        pmTip }) {
         // Parse the date string assuming it's in YYYY-MM-DD format
-        let parsedDate = new Date(date + 'T00:00:00Z'); // Treat as UTC
+        let parsedDate = new Date(date);
 
         // Extract and format the date components
-        let month = String(parsedDate.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-based
-        let day = String(parsedDate.getUTCDate()).padStart(2, '0');
-        let year = parsedDate.getUTCFullYear();
+        let month = String(parsedDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        let day = String(parsedDate.getDate()).padStart(2, '0');
+        let year = parsedDate.getFullYear();
 
         let formattedDate = `${month}/${day}/${year}`;
 
