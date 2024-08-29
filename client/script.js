@@ -55,6 +55,8 @@ btn.addEventListener('click', (event) => {
                     pmKit++;
                 }
             });
+            alert("Please select employees for each shift");
+
             var pmPer = pm.reduce(add, 0);
             var pm_smallest = Number(smallest_percentage(pm)).toFixed(2);
 
@@ -87,7 +89,7 @@ btn.addEventListener('click', (event) => {
             else if (pmMilkTea==2) {pmMax =20;}
             if (pm_mt_tips > pmMax){pm_mt_tips=pmMax;}
             pm_mt_total = pm_mt_tips * pmMilkTea;
-            pm_server_total = pm_server_total - am_mt_total;
+            pm_server_total = pm_server_total - pm_mt_total;
 
             //console.log(am_kit_tips);
             //console.log(pm_kit_tips);
@@ -119,11 +121,26 @@ btn.addEventListener('click', (event) => {
                         .then(response => response.json())
                 }
 
-                if (checkboc.value == "0.99"){
+                if (checkbox.value == "0.99"){
+                    let employee = checkbox.id;
+
+                    fetch('https://mumuhotpot.onrender.com/tip', {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            employee,
+                            date: date,
+                            amTip: am_mt_tips,
+                            pmTip: pmTip
+                        })
+                    })
+                        .then(response => response.json())
 
                 }
 
-                if (checkbox.value != "0") {
+                if (checkbox.value != "0" && checkbox.value != "0.99") {
 
 
                     // console.log(amTip);
@@ -177,7 +194,26 @@ btn.addEventListener('click', (event) => {
                         .then(response => response.json())
                 }
 
-                if (checkbox.value != "0") {
+                if (checkbox.value == "0.99"){
+                    let employee = checkbox.id;
+
+                    fetch('https://mumuhotpot.onrender.com/tip', {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            employee,
+                            date: date,
+                            amTip: pm_mt_tips,
+                            pmTip: pmTip
+                        })
+                    })
+                        .then(response => response.json())
+
+                }
+
+                if (checkbox.value != "0" && checkbox.value != "0.99") {
 
                     if (pmPer != pm_smallest) {
                         pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
