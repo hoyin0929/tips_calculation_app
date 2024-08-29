@@ -315,16 +315,20 @@ function loadTipTable(data){
 
     data.forEach(function({name, date, amTip, pmTip}){
 
-        let parsedDate = new Date(date);
-        
-        // Use toISOString to format the date correctly
-        let formattedDate = parsedDate.toISOString().split('T')[0];  // Format date as 'YYYY-MM-DD'
-        
-        // Convert to a more readable format
-        let readableDate = new Date(formattedDate).toDateString();
+        pmTip }) {
+        // Parse the date string assuming it's in YYYY-MM-DD format
+        let parsedDate = new Date(date + 'T00:00:00Z'); // Treat as UTC
+
+        // Extract and format the date components
+        let month = String(parsedDate.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-based
+        let day = String(parsedDate.getUTCDate()).padStart(2, '0');
+        let year = parsedDate.getUTCFullYear();
+
+        let formattedDate = `${month}/${day}/${year}`;
+
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
-        tableHtml += `<td>${readableDate}</td>`;
+        tableHtml += `<td>${formattedDate}</td>`;
         tableHtml += `<td>$${amTip}</td>`;
         tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";
