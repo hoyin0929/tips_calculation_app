@@ -315,11 +315,16 @@ function loadTipTable(data){
 
     data.forEach(function({name, date, amTip, pmTip}){
 
-        var date = new Date(date);
-        date.setDate(date.getDate()+1);
+        let parsedDate = new Date(date);
+        
+        // Use toISOString to format the date correctly
+        let formattedDate = parsedDate.toISOString().split('T')[0];  // Format date as 'YYYY-MM-DD'
+        
+        // Convert to a more readable format
+        let readableDate = new Date(formattedDate).toDateString();
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
-        tableHtml += `<td>${new Date(date).toDateString()}</td>`;
+        tableHtml += `<td>${readableDate}</td>`;
         tableHtml += `<td>$${amTip}</td>`;
         tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";
