@@ -23,10 +23,16 @@ btn.addEventListener('click', (event) => {
         if (amcheckboxes.length > 0 && pmcheckboxes.length > 0) {
             let amKit = 0;
             let pmKit = 0;
+            let amMilkTea = 0;
+            let pmMilkTea = 0;
 
             let am = [];
             amcheckboxes.forEach((checkbox) => {
-                am.push(checkbox.value);
+                if (checkbox.value != "0.99"){ //bybass milktea staffs
+                    am.push(checkbox.value);
+                }else{
+                    amMilkTea++;
+                }
                 // console.log(checkbox.value);
                 // console.log(checkbox.dataset.id);
                 if (checkbox.value === "0") {
@@ -40,7 +46,11 @@ btn.addEventListener('click', (event) => {
 
             let pm = [];
             pmcheckboxes.forEach((checkbox) => {
-                pm.push(checkbox.value);
+                if (checkbox.value != "0.99"){ //bybass milktea staffs
+                    pm.push(checkbox.value);
+                }else{
+                    pmMilkTea++;
+                }
                 if (checkbox.value === "0") {
                     pmKit++;
                 }
@@ -53,14 +63,31 @@ btn.addEventListener('click', (event) => {
 
             var am_kitchen_total = (Number(amTotal) * 0.1);
             var am_kit_tips = float2int(Number(am_kitchen_total) / Number(amKit));
-            am_kitchen_total = am_kit_tips * Number(amKit);
+            am_kitchen_total = am_kit_tips * Number(amKit); 
             var am_server_total = amTotal - am_kitchen_total;
+
+            let amMax= 0;
+            var am_mt_tips = (Math.floor(am_server_total / 500) * 10);
+            if (amMilkTea==1) {amMax =30;}
+            else if (amMilkTea==2) {amMax =20;}
+            if (am_mt_tips > amMax){am_mt_tips=amMax;}
+            am_mt_total = am_mt_tips * amMilkTea;
+            am_server_total = am_server_total - am_mt_total;
+
             // console.log(am_server_total);
 
             var pm_kitchen_total = (Number(pmTotal) * 0.1);
             var pm_kit_tips = float2int(Number(pm_kitchen_total) / Number(pmKit));
             pm_kitchen_total = pm_kit_tips * Number(pmKit);
             var pm_server_total = pmTotal - pm_kitchen_total;
+            
+            let pmMax= 0;
+            var pm_mt_tips = (Math.floor(pm_server_total / 500) * 10);
+            if (pmMilkTea==1) {pmMax =30;}
+            else if (pmMilkTea==2) {pmMax =20;}
+            if (pm_mt_tips > pmMax){pm_mt_tips=pmMax;}
+            pm_mt_total = pm_mt_tips * pmMilkTea;
+            pm_server_total = pm_server_total - am_mt_total;
 
             //console.log(am_kit_tips);
             //console.log(pm_kit_tips);
@@ -90,6 +117,10 @@ btn.addEventListener('click', (event) => {
                         })
                     })
                         .then(response => response.json())
+                }
+
+                if (checkboc.value == "0.99"){
+
                 }
 
                 if (checkbox.value != "0") {
