@@ -30,11 +30,20 @@ function loadTipTable(data){
     let tableHtml = "";
 
     data.forEach(function({name, date, amTip, pmTip}){
-        var date = new Date(date);
-        date.setDate(date.getDate()+1);
+        var dateObj = new Date(date);
+        var month = dateObj.getMonth() + 1; // Months are zero-based
+        var day = dateObj.getDate();
+        var year = dateObj.getFullYear();
+    
+        // Format month and day to always have two digits
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+    
+        var formattedDate = `${month}/${day}/${year}`;
+    
         tableHtml += "<tr>";
         tableHtml += `<td class="name">${name}</td>`;
-        tableHtml += `<td>${new Date(date).toDateString()}</td>`;
+        tableHtml += `<td>${formattedDate}</td>`;
         tableHtml += `<td>$${amTip}</td>`;
         tableHtml += `<td>$${pmTip}</td>`;
         tableHtml += "</tr>";

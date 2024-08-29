@@ -214,7 +214,7 @@ btn.addEventListener('click', (event) => {
 
                 if (checkbox.value != "0" && checkbox.value != "0.99") {
 
-                    if (pmPer.toFixed(2) != pm_smallest) {
+                    if (pmPer != pm_smallest) {
                         pmTip = Math.round((pm_server_total * (checkbox.value)) / pmPer);
                         pm_server_total = (pm_server_total - pmTip).toFixed(2);
                         pmPer = (pmPer - checkbox.value).toFixed(2);
