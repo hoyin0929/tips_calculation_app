@@ -87,6 +87,7 @@ btn.addEventListener('click', (event) => {
             var pm_mt_tips = (Math.floor(pm_server_total / 500) * 10);
             if (pmMilkTea==1) {pmMax =30;}
             else if (pmMilkTea==2) {pmMax =20;}
+            else if (pmMilkTea==3) {pmMax =15;}
             if (pm_mt_tips > pmMax){pm_mt_tips=pmMax;}
             pm_mt_total = pm_mt_tips * pmMilkTea;
             pm_server_total = pm_server_total - pm_mt_total;
